@@ -2,7 +2,7 @@ import docopt
 import re
 import numpy as np
 
-""" get script arguments """
+""" get arguments """
 usage = '''usage:
     solve.py <path>'''
 
@@ -12,7 +12,7 @@ path = args['<path>']
 """ read input """
 txt = open(path, 'r').read()
 
-""" regex the file to get an array, up --> -up, same column as down """
+# regex the file to get an array, up --> -up, same column as down
 txt = re.sub('forward (\d+)', r'\1,0', txt)
 txt = re.sub('up (\d+)', r'0,-\1', txt)
 txt = re.sub('down (\d+)', r'0,\1', txt)
