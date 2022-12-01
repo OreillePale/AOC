@@ -11,11 +11,13 @@ fn max(x: u32, y: u32) -> u32{
     }
 }
 
+// naive sort, the least effective way
 fn sort(v: &mut Vec<u32>){
     let mut a = 0;
     for n in 0..v.len()-1{
         if v[n] > v[n+1]{
-            switch(v, n, n+1);
+            // switch(v, n, n+1);
+            v.swap(n, n+1);
             a += 1;
         }
     }
@@ -25,8 +27,9 @@ fn sort(v: &mut Vec<u32>){
     }
 }
 
+// no need for this, new version of rust has built-in swap function
 fn switch(v: &mut Vec<u32>, i: usize, j:usize){
-    let vi = v[i]; // this makes a copy
+    let vi = v[i]; 
     v[i] = v[j];
     v[j] = vi;
 }
