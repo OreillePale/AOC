@@ -55,7 +55,6 @@ fn mover9000(stacks: &mut Vec<Vec<char>>, instructions: &Vec<Instruction>){
     }
 }
 
-// TODO: debug this and finish task (lost half a day, again...)
 fn mover9001(stacks: &mut Vec<Vec<char>>, instructions: &Vec<Instruction>){
     for inst in instructions{
         let idx = stacks[inst.from].len() - inst.mmove as usize;
