@@ -38,10 +38,10 @@ fn main() {
     let lines: Vec<String> = reader.lines().map(|l| l.expect("could not parse line")).collect();
 
     let idx1 = find_buffer_index(&lines[0], 4);
-    println!("Answer1: {idx1}");
+    println!("Answer 1: {idx1}");
 
     let idx2 = find_buffer_index(&lines[0], 14);
-    println!("Answer2: {idx2}");
+    println!("Answer 2: {idx2}");
 
 
 }
