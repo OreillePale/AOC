@@ -27,7 +27,7 @@ fn solve(lines: &Vec<String>) -> i32{
 
     let mut CRT: Vec<char> = Vec::new();
     for i in 0..40*6{
-        CRT.push('.');
+        CRT.push(' ');
     }
 
     for line in lines{
