@@ -60,7 +60,7 @@ impl Graph{
         graph
     }
 
-    pub fn dijkstra(&self, left: usize, right: usize) -> Vec<usize>{
+    pub fn dijkstra(&self, left: usize, right: usize) -> Option<Vec<usize>>{
         // create vector with costs and visited flags
         let mut costs: Vec<f32> = vec![f32::INFINITY; self.nodes.len()];
         costs[left] = 0.;
@@ -97,11 +97,11 @@ impl Graph{
 
             if ncid == None{
                 //panic!("search stopped because all nodes were visited");
-                return Vec::new();
+                return None;
             }
             if costs[ncid.unwrap()] == f32::INFINITY{
                 //panic!("current cost is infinity");
-                return Vec::new();
+                return None;
             }
             cid = ncid.unwrap();
 
@@ -137,6 +137,6 @@ impl Graph{
 
         // return 
         ret.reverse();
-        ret
+        Some(ret)
     }
 }

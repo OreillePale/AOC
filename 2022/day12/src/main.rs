@@ -82,7 +82,7 @@ fn main() {
         // solve part 1
         println!("start = {start}, end = {stop}");
         let graph = build_graph(&mat);
-        let route = graph.dijkstra(start, stop);
+        let route = graph.dijkstra(start, stop).unwrap();
         println!("Answer 1 = {}", route.len()-1);
 
         // solve part 2, we can be lazy because it's rust; but there is a more efficient way of doing that
@@ -97,12 +97,13 @@ fn main() {
                 if mat[i][j] == a{
                     let k = i*mat[0].len() + j;
                     let route = graph.dijkstra(k, stop);
-                    if route.len() > 0{
+                    if route != None {
+                        let llen = route.as_ref().unwrap().len();
                         if fcost == None {
-                            fcost = Some(route.len());
+                            fcost = Some(llen);
                         }
-                        else if fcost.unwrap() > route.len(){
-                            fcost = Some(route.len());
+                        else if fcost.unwrap() > llen{
+                            fcost = Some(llen);
                         }
                     }
                 } 
